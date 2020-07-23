@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CityWeather.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="mnuChangeFont" Order="Primary" Text="Change Font Size" Priority="0" 
+                     Clicked="mnuChangeFont_clicked"/>
+        <ToolbarItem Name="mnuChangeTheme" Order="Primary" Text="Change Theme" Priority="1" 
+                     Clicked="mnuChangeTheme_clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.25*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblCityWeather" Text="City Weather" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="White" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Title">
+            <Label.FormattedText>
+                <FormattedString/>
+            </Label.FormattedText>
+        </Label>
+
+        <Label Text="City Weather &lt;/strong;&gt; " TextType="Html" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Title" TextColor="Red" Margin="10,5"/>
+
+        <Label x:Name="lblSelectCity" Text="Select the City you wish to see the current weather conditions for:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5"/>
+
+        <Picker x:Name="pckCity" Title="Select City" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" BackgroundColor="White" TextColor="Red" Margin="5,5,20,5" SelectedIndexChanged="PickerItem_selected">
+            <Picker.Items>
+                <x:String>Adelaide</x:String>
+                <x:String>Brisbane</x:String>
+                <x:String>Canberra</x:String>
+                <x:String>Darwin</x:String>
+                <x:String>Hobart</x:String>
+                <x:String>Melbourne</x:String>
+                <x:String>Perth</x:String>
+                <x:String>Sydney</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label x:Name="lblCurrentWeather" Text="The current weather conditions in your selected City is:" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5"/>
+
+        <Label x:Name="lblCurrentTemperature" Text="Current temperature:" Grid.Column="0" Grid.Row="4" BackgroundColor="White" VerticalTextAlignment="Center" Margin="20,5,5,5" />
+        <Entry Placeholder="Current temperature" Grid.Column="1" Grid.Row="4" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5" 
+               x:Name="entCurrentTemperature"/>
+
+        <Label x:Name="lblSunriseTime" Text="Sunrise time:" Grid.Column="0" Grid.Row="5" BackgroundColor="White" VerticalTextAlignment="Center" Margin="20,5,5,5" />
+        <Entry Placeholder="Sunrise time" Grid.Column="1" Grid.Row="5" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5" 
+               x:Name="entSunriseTime"/>
+
+        <Label x:Name="lblSunsetTime" Text="Sunset time:" Grid.Column="0" Grid.Row="6" BackgroundColor="White" VerticalTextAlignment="Center" Margin="20,5,5,5" />
+        <Entry Placeholder="Sunset time" Grid.Column="1" Grid.Row="6" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5" 
+               x:Name="entSunsetTime"/>
+
+        <Label x:Name="lblWindSpeed" Text="Wind speed:" Grid.Column="0" Grid.Row="7" BackgroundColor="White" VerticalTextAlignment="Center" Margin="20,5,5,5" />
+        <Entry Placeholder="Wind speed" Grid.Column="1" Grid.Row="7" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5" 
+               x:Name="entWindSpeed"/>
+
+        <Label x:Name="lblHumidity" Text="Humidity:" Grid.Column="0" Grid.Row="8" BackgroundColor="White" VerticalTextAlignment="Center" Margin="20,5,5,5" />
+        <Entry Placeholder="Humidity" Grid.Column="1" Grid.Row="8" BackgroundColor="White" VerticalTextAlignment="Center" Margin="5,5,20,5" 
+               x:Name="entHumidity"/>
+
+    </Grid>
+
+</ContentPage>
