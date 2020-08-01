@@ -154,7 +154,6 @@ namespace CityWeather
                 WebRequest req = WebRequest.Create(query);
                 WebResponse res = await req.GetResponseAsync();
                 XDocument xdoc = XDocument.Load(res.GetResponseStream());
-
                 PopulateValues(xdoc);
             }
 
@@ -230,8 +229,8 @@ namespace CityWeather
         private void PopulateValues(XDocument xdoc)
         {
             entCurrentTemperature.Text = xdoc.Root.Element("temperature").Attribute("value").Value;
-            entSunriseTime.Text = xdoc.Root.Element("sun").Attribute("rise").Value; 
-            entSunsetTime.Text = xdoc.Root.Element("sun").Attribute("set").Value; 
+            entSunriseTime.Text = xdoc.Root.Element("city").Element("sun").Attribute("rise").Value; 
+            entSunsetTime.Text = xdoc.Root.Element("city").Element("sun").Attribute("set").Value; 
             entWindSpeed.Text = xdoc.Root.Element("wind").Element("speed").Attribute("value").Value;
             entHumidity.Text = xdoc.Root.Element("humidity").Attribute("value").Value;
         }
